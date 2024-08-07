@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 //navbar
 import Floatingnav from "./components/floatingnav";
 
@@ -17,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className=" costum-body ">
+      <SpeedInsights />
         <Floatingnav />
         {children}</body>
     </html>
