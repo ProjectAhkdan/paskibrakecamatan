@@ -13,7 +13,7 @@ const Benner = [
 
 export default function Home() {
   return (
-    <div className="w-full h-[40vh] md:h-[130vh] px-3 relative font-Montserrrat">
+    <div className="w-full h-[30vh] md:h-[130vh] px-3 relative font-Montserrrat">
       <div className="w-full h-full relative">
         <div
           style={{
