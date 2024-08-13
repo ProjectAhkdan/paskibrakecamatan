@@ -6,7 +6,7 @@ export default function HoverButton() {
   return (
     <div className=" flex text-center py-3 gap-5">
       <div>
-      <button className=" text-[10px]  border-b-2 border-[#FF0000] text-black px-4 py-2 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-gradient-to-b from-white to-gray-500 hover:text-white dark:text-neutral-200 transition duration-200">
+      <button className=" text-[10px] shadow-black shadow-sm  border-b-2 border-[#FF0000] text-white px-4 py-2 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-gradient-to-b from-white to-gray-500 hover:text-black transition duration-200">
         DAFTAR
       </button>
       </div>
