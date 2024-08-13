@@ -1,11 +1,13 @@
 import Benner from "./components/Benner";
-import Beranda from "./profil/page";
+import Profil from "./profil/page";
+import TahapanSeleksi from "./Tahapan Seleksi/page";
 
 export default function Home() {
   return (
-   <div>
+   <div className=" scroll-smooth">
     <Benner />
-    <Beranda />
+    <Profil />
+    <TahapanSeleksi />
    </div>
   );
 }

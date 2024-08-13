@@ -9,6 +9,9 @@ export default function Beranda() {
           <Image src={Profil} width={729} height={59} alt="Benner.Poril" />
         </div>
         <div className="w-full md:w-1/2 h-full">
+        <h1 className="font-bold text-xl text-white shadow-text">
+            <span className=" text-red-500">Profil</span>{" "} PASKIBRAKA
+          </h1>
           <h1 className="font-bold text-xl bg-gradient-to-r from-white to-slate-700 bg-clip-text text-transparent">
             Apa itu PASKIBRAKA?
           </h1>

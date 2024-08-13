@@ -11,10 +11,10 @@ type MenuItem = {
 };
 
 const menuItems: MenuItem[] = [
-  { name: "Beranda", link: "#Beranda" },
-  { name: "Profil", link: "#Profil" },
+  { name: "Beranda", link: "/#Beranda" },
+  { name: "Profil", link: "/#Profil" },
   { name: "Galeri", link: "/services" },
-  { name: "Tahapan Seleksi", link: "/contact" },
+  { name: "Tahapan Seleksi", link: "/#Tahapan Seleksi" },
   { name: "Kontak", link: "/contact" }
 ];
 
