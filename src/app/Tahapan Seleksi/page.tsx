@@ -12,6 +12,10 @@ import Profil2 from "../../../public/Tahapan/foto2.jpg";
 import Profil3 from "../../../public/Tahapan/foto3.jpg";
 import Logo from "../../../public/Navbar/Logo.png";
 import { CardContainer, CardBody, CardItem } from "../components/ui/3dCard";
+import { Button } from "../components/ui/moving-border";
+
+/* CSS Swiper*/
+import "../styles/swipper.css";
 
 export default function TahapanSeleksi() {
   const cardskec = [
@@ -96,11 +100,11 @@ export default function TahapanSeleksi() {
           breakpoints={{
             640: {
               slidesPerView: 2,
-              spaceBetween: 20,
+              spaceBetween: 10,
             },
             768: {
-              slidesPerView: 4,
-              spaceBetween: 30,
+              slidesPerView: 3,
+              spaceBetween: 20,
             },
             1024: {
               slidesPerView: 4,
@@ -142,14 +146,19 @@ export default function TahapanSeleksi() {
                       target="__blank"
                       className="px-4 py-2 rounded-xl text-xs font-normal text-black mb-2 md:mb-0"
                     >
-                      Daftar Sekarang →
+                      <span className="block md:hidden">Daftar Sekarang ↓</span>
+                      <span className="hidden md:block">Daftar Sekarang →</span>
                     </CardItem>
+
                     <CardItem
                       translateZ={20}
-                      as="button"
-                      className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
                     >
-                      Sign up
+                      <Button
+                        borderRadius="1.75rem"
+                        className=" bg-black text-white font-bold"
+                      >
+                        Sign up
+                      </Button>
                     </CardItem>
                   </div>
                 </CardBody>
