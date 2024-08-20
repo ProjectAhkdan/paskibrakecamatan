@@ -5,7 +5,8 @@ import Lenis from "lenis";
 import Benner from "./components/Benner";
 import Profil from "./profil/page";
 import TahapanSeleksi from "./Tahapan Seleksi/page";
-import Spinner from "./components/ui/Loader"; // Import Spinner
+import Spinner from "./components/ui/Loader"; 
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -50,6 +51,7 @@ export default function Home() {
           <Benner />
           <Profil />
           <TahapanSeleksi />
+          <Footer />
         </>
       )}
     </div>

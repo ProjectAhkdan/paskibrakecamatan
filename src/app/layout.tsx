@@ -4,6 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 //navbar
 import Floatingnav from "./components/floatingnav";
 
+
 export const metadata: Metadata = {
   title: "Paskibra Kecamatan Sepatan",
   description: "Tahun 2025",

@@ -11,10 +11,6 @@
   }
 }
 
-.animate-dominos {
-  animation: dominos 1s ease infinite;
-}
-
 @keyframes dominos1 {
   50% {
     opacity: 0.7;
@@ -25,10 +21,6 @@
   80% {
     opacity: 1;
   }
-}
-
-.animate-dominos1 {
-  animation: dominos1 1.2s ease infinite;
 }
 
 @keyframes dominos2 {
@@ -43,10 +35,6 @@
   }
 }
 
-.animate-dominos2 {
-  animation: dominos2 1.3s ease infinite;
-}
-
 @keyframes dominos3 {
   50% {
     opacity: 0.7;
@@ -57,10 +45,6 @@
   80% {
     opacity: 1;
   }
-}
-
-.animate-dominos3 {
-  animation: dominos3 1.4s ease infinite;
 }
 
 @keyframes dominos4 {
@@ -75,10 +59,6 @@
   }
 }
 
-.animate-dominos4 {
-  animation: dominos4 1.5s ease infinite;
-}
-
 @keyframes dominos5 {
   50% {
     opacity: 0.7;
@@ -89,10 +69,6 @@
   80% {
     opacity: 1;
   }
-}
-
-.animate-dominos5 {
-  animation: dominos5 1.6s ease infinite;
 }
 
 @keyframes dominos6 {
@@ -107,10 +83,6 @@
   }
 }
 
-.animate-dominos6 {
-  animation: dominos6 1.7s ease infinite;
-}
-
 @keyframes dominos7 {
   50% {
     opacity: 0.7;
@@ -123,7 +95,42 @@
   }
 }
 
-.animate-dominos7 {
-  animation: dominos7 1.8s ease infinite;
+.animate-dominos {
+  animation: dominos 1s ease infinite;
+  animation-delay: 0s;
 }
 
+.animate-dominos1 {
+  animation: dominos1 1.2s ease infinite;
+  animation-delay: 0.1s;
+}
+
+.animate-dominos2 {
+  animation: dominos2 1.3s ease infinite;
+  animation-delay: 0.2s;
+}
+
+.animate-dominos3 {
+  animation: dominos3 1.4s ease infinite;
+  animation-delay: 0.3s;
+}
+
+.animate-dominos4 {
+  animation: dominos4 1.5s ease infinite;
+  animation-delay: 0.4s;
+}
+
+.animate-dominos5 {
+  animation: dominos5 1.6s ease infinite;
+  animation-delay: 0.5s;
+}
+
+.animate-dominos6 {
+  animation: dominos6 1.7s ease infinite;
+  animation-delay: 0.6s;
+}
+
+.animate-dominos7 {
+  animation: dominos7 1.8s ease infinite;
+  animation-delay: 0.7s;
+}
