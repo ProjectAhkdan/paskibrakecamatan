@@ -26,7 +26,7 @@ const Footer = () => {
                 alt="Logo"
                 width={500}
                 height={500}
-                className="w-[120px] h-[120px] md:w-[150px] md:h-[150px]"
+                className="w-[100px] h-[100px] md:w-[150px] md:h-[150px]"
               />
               <h4 className="text-lg md:text-3xl bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent">
                 Paskibra Kecamatan
