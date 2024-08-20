@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import {
   motion,
@@ -32,7 +31,7 @@ export function Button({
   return (
     <Component
       className={cn(
-        "bg-transparent relative text-base h-9 w-20 p-[1px] overflow-hidden", // Ukuran tombol dikurangi
+        "bg-transparent relative text-base h-9 w-20 p-[1px] overflow-hidden",
         containerClassName
       )}
       style={{
@@ -42,12 +41,12 @@ export function Button({
     >
       <div
         className="absolute inset-0"
-        style={{ borderRadius: `calc(${borderRadius} * 0.92)` }} // Radius border sedikit dikurangi
+        style={{ borderRadius: `calc(${borderRadius} * 0.92)` }}
       >
-        <MovingBorder duration={duration} rx="20%" ry="20%"> {/* Radius dikurangi */}
+        <MovingBorder duration={duration} rx="20%" ry="20%">
           <div
             className={cn(
-              "h-16 w-16 opacity-[0.8] bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)]",
+              "h-16 w-16 opacity-[0.8] bg-[radial-gradient(var(--red-500)_40%,transparent_60%)]", // Update the color here
               borderClassName
             )}
           />
@@ -56,11 +55,11 @@ export function Button({
 
       <div
         className={cn(
-          "relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-xs antialiased", // Ukuran font dikurangi
+          "relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-xs antialiased",
           className
         )}
         style={{
-          borderRadius: `calc(${borderRadius} * 0.92)`, // Radius dikurangi
+          borderRadius: `calc(${borderRadius} * 0.92)`,
         }}
       >
         {children}

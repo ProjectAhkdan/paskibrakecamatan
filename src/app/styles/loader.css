@@ -1,0 +1,17 @@
+/* styles/global.css */
+@keyframes dominos {
+    50% {
+      opacity: 0.7;
+    }
+    75% {
+      transform: rotate(90deg);
+    }
+    80% {
+      opacity: 1;
+    }
+  }
+  
+  .animate-dominos {
+    animation: dominos 1s ease infinite;
+  }
+  
