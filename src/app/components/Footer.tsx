@@ -28,7 +28,7 @@ const Footer = () => {
                 height={500}
                 className="w-[100px] h-[100px] md:w-[150px] md:h-[150px]"
               />
-              <h4 className="text-lg md:text-3xl bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent">
+              <h4 className="text-sm md:text-3xl bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent">
                 Paskibra Kecamatan
               </h4>
             </div>
