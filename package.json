@@ -12,17 +12,21 @@
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@nextui-org/react": "^2.4.6",
+    "@radix-ui/react-label": "^2.1.0",
+    "@supabase/supabase-js": "^2.45.1",
+    "@tabler/icons-react": "^3.12.0",
     "@vercel/speed-insights": "^1.0.12",
     "clsx": "^2.1.1",
-    "framer-motion": "^11.3.24",
+    "framer-motion": "^11.3.30",
     "lenis": "^1.1.9",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
     "react-element-to-jsx-string": "^15.0.0",
     "react-icons": "^5.2.1",
+    "styled-components": "^6.1.12",
     "swiper": "^11.1.9",
-    "tailwind-merge": "^2.5.0"
+    "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
     "@types/node": "20.15.0",

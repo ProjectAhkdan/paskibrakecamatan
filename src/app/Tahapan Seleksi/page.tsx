@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -8,6 +8,7 @@ import { Pagination } from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
 import { cardskec } from "./DataTP";
+import { cardskab } from "./DataTP";
 import Logo from "../../../public/Navbar/Logo.png";
 import { CardContainer, CardBody, CardItem } from "../components/ui/3dCard";
 import { Button } from "../components/ui/moving-border";
@@ -16,7 +17,7 @@ import { Button } from "../components/ui/moving-border";
 import "../styles/swipper.css";
 
 export default function TahapanSeleksi() {
- 
+
   return (
     <div className="bg-slate-300 rounded-t-3xl py-6 relative font-Montserrrat">
       <div className="flex items-center justify-between px-6 md:px-12 lg:px-20 mb-6">
@@ -58,27 +59,16 @@ export default function TahapanSeleksi() {
             <SwiperSlide key={index}>
               <CardContainer className="inter-var">
                 <CardBody className="border-2 border-black relative group/card mx-2 md:mx-2 w-auto h-auto rounded-t-xl rounded-b-xl p-4 md:p-6 shadow-lg transition-shadow duration-500 ease-in-out hover:shadow-[0_4px_8px_rgba(255,0,0,0.5)]">
-                  <CardItem
-                    translateZ="50"
+                  <TruncateTitlekec
+                    title={card.title}
                     className="text-sm md:text-lg font-bold text-red-500"
-                  >
-                    {card.title}
-                  </CardItem>
+                  />
                   <CardItem
                     as="p"
                     translateZ="60"
                     className="text-xs md:text-sm max-w-sm mt-2 text-black"
                   >
                     {card.description}
-                  </CardItem>
-                  <CardItem translateZ="100" className="w-full mt-4">
-                    <Image
-                      src={card.image}
-                      height="1000"
-                      width="1000"
-                      className="h-40 md:h-60 w-full object-cover rounded-xl"
-                      alt="thumbnail"
-                    />
                   </CardItem>
                   <div className="flex flex-col md:flex-row justify-between items-center mt-4">
                     <CardItem
@@ -113,8 +103,11 @@ export default function TahapanSeleksi() {
       <div className="flex items-center justify-between px-6 md:px-12 lg:px-20 mb-6">
         <Image src={Logo} alt="Logo" width={50} height={50} />
         <div className="text-center">
+          <h1 className="text-xl md:text-2xl font-bold text-red-600">
+            Tahapan Seleksi
+          </h1>
           <p className="text-xs md:text-sm text-black font-bold">
-          Berikut Tahapan Seleksi Tingkat KABUPATEN TANGERANG
+            Berikut Seleksi Tingkat KECAMATAN SEPATAN
           </p>
         </div>
       </div>
@@ -142,31 +135,20 @@ export default function TahapanSeleksi() {
             },
           }}
         >
-          {cardskec.map((card, index) => (
+          {cardskab.map((card, index) => (
             <SwiperSlide key={index}>
               <CardContainer className="inter-var">
                 <CardBody className="border-2 border-black relative group/card mx-2 md:mx-2 w-auto h-auto rounded-t-xl rounded-b-xl p-4 md:p-6 shadow-lg transition-shadow duration-500 ease-in-out hover:shadow-[0_4px_8px_rgba(255,0,0,0.5)]">
-                  <CardItem
-                    translateZ="50"
+                  <TruncateTitlekab
+                    title={card.title}
                     className="text-sm md:text-lg font-bold text-red-500"
-                  >
-                    {card.title}
-                  </CardItem>
+                  />
                   <CardItem
                     as="p"
                     translateZ="60"
                     className="text-xs md:text-sm max-w-sm mt-2 text-black"
                   >
                     {card.description}
-                  </CardItem>
-                  <CardItem translateZ="100" className="w-full mt-4">
-                    <Image
-                      src={card.image}
-                      height="1000"
-                      width="1000"
-                      className="h-40 md:h-60 w-full object-cover rounded-xl"
-                      alt="thumbnail"
-                    />
                   </CardItem>
                   <div className="flex flex-col md:flex-row justify-between items-center mt-4">
                     <CardItem
@@ -200,3 +182,56 @@ export default function TahapanSeleksi() {
     </div>
   );
 }
+
+const TruncateTitlekec = ({
+  title,
+  className,
+}: {
+  title: string;
+  className: string;
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleToggle = () => setIsExpanded(!isExpanded);
+
+  return (
+    <CardItem translateZ="50" className={className}>
+      {truncateText(title, isExpanded)}
+      <button
+        onClick={handleToggle}
+        className="text-blue-500 text-sm underline ml-1"
+      >
+        {isExpanded ? "Sembunyikan" : "Lihat selengkapnya"}
+      </button>
+    </CardItem>
+  );
+};
+
+const TruncateTitlekab = ({
+  title,
+  className,
+}: {
+  title: string;
+  className: string;
+}) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleToggle = () => setIsExpanded(!isExpanded);
+
+  return (
+    <CardItem translateZ="50" className={className}>
+      {truncateText(title, isExpanded)}
+      <button
+        onClick={handleToggle}
+        className="text-blue-500 text-sm underline ml-1"
+      >
+        {isExpanded ? "Sembunyikan" : "Lihat selengkapnya"}
+      </button>
+    </CardItem>
+  );
+};
+
+const truncateText = (text: string, isExpanded: boolean) => {
+  if (isExpanded) return text;
+  return `${text.split(" ")[0]}...`;
+};
