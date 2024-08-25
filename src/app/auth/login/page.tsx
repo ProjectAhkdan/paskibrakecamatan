@@ -1,59 +1,150 @@
 "use client";
 
-import Image from "next/image";
-import React, { useState } from "react";
-import BGg from "../../../../public/Login/Kab1.jpg";
+import { useState } from "react";
+import React from "react";
 import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
+import Recaptcha from "../../components/Recaptcha"; // Pastikan path-nya benar
+import { cn } from "@/app/libs/utils";
 
 export default function LoginSignUpSlider() {
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+
+  const handleCaptchaChange = (value: string | null) => {
+    setCaptchaValue(value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!captchaValue) {
+      alert("Please complete the CAPTCHA.");
+      return;
+    }
+
+    const res = await fetch("/api/verify-captcha", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ response: captchaValue }),
+    });
+
+    const data = await res.json();
+    alert(data.message);
+  };
 
   return (
-    <div className="relative h-screen w-full font-Montserrrat">
-      <div className="h-full w-full">
-        <Image src={BGg} alt="background" layout="fill" objectFit="cover" />
-        <div className="absolute top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm"></div>
-      </div>
+    <div className="min-h-screen font-Montserrrat text-gray-900 flex justify-center">
+      <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow-white shadow-lg sm:rounded-lg flex justify-center flex-1">
+        <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+          <div className="mt-12 flex flex-col items-center">
+            <span className="text-4xl">👋</span>
+            <h1 className="text-2xl text-center xl:text-3xl font-extrabold">
+              Welcome Back, Adan
+            </h1>
+            <p className="text-center text-gray-500">
+              Silahkan Masukan Data Anda
+            </p>
 
-      <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-        <div className="md:w-[900px] w-11/12 h-96 md:h-96 shadow shadow-white rounded-lg backdrop-blur-sm bg-white/15 flex flex-col md:flex-row">
-          {/* Elemen tambahan dengan background merah */}
-          <div className="md:w-1/2 w-full h-1/2 md:h-full bg-red-500 flex justify-center items-center relative rounded-t-lg md:rounded-l-lg md:rounded-tr-none">
-            <div className="absolute inset-0">
-              <Image
-                src={BGg}
-                alt="background"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-t-lg md:rounded-l-lg md:rounded-tr-none"
-              />
-              <div className="absolute rounded-t-lg md:rounded-l-lg md:rounded-tr-none top-0 left-0 w-full h-full bg-black/50"></div>
-            </div>
-            <div className="absolute">
-              <div className=" inset-0 justify-start items-center pl-16 pr-36">
-                <span className="text-3xl text text-center ">👋</span>
-                <p className="text-white relative z-10 md:text-xl font-normal">
-                  Welcome back{" "}
-                  <span className=" gradient-text animate-gradient font-extrabold text-2xl">
-                    (nama orangnya)
-                  </span>
-                </p>
+            <div className="w-full flex-1">
+              <div className="flex flex-col items-center"></div>
+
+              <div className="my-12 border-b text-center">
+                <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-3/4">
+                  Input your Data
+                </div>
               </div>
 
-              <div className=" inset-0 justify-start items-center pl-16 pr-7">
-                <p className="text-white mt-2 md:text-xs font-light">
-                  Masuk untuk mengakses dashboard Paskibra Kecamatan Sepatan
+              <div className="mx-auto max-w-xs">
+                <form onSubmit={handleSubmit}>
+                  <LabelInputContainer>
+                    <Label htmlFor="nik">NIK sesuai KTP</Label>
+                    <Input
+                      className="w-full px-8 py-4 rounded-lg font-medium focus:text-black border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                      type="number"
+                      id="nik"
+                      placeholder="NIK"
+                      required
+                    />
+                  </LabelInputContainer>
+
+                  {/* CAPTCHA Integration */}
+                  <div className="mt-5">
+                    <Recaptcha onChange={handleCaptchaChange} />
+                  </div>
+
+                  <LabelInputContainer className="mt-5">
+                    <Label htmlFor="password">Password</Label>
+                    <Input
+                      className="w-full px-8 py-4 rounded-lg font-medium focus:text-black border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                      type="password"
+                      id="password"
+                      placeholder="Password"
+                      required
+                    />
+                  </LabelInputContainer>
+
+                  <button
+                    className="relative mt-4 block w-full h-10 bg-gradient-to-br from-black to-neutral-600 text-white rounded-md font-medium shadow-md transition-shadow duration-300 ease-in-out hover:shadow-lg"
+                    type="submit"
+                  >
+                    Sign up <span>&rarr;</span>
+                    <BottomGradient />
+                  </button>
+                </form>
+
+                <p className="mt-6 text-xs text-gray-600 text-center">
+                  I agree to abide by templatana's
+                  <a
+                    href="#"
+                    className="border-b border-gray-500 border-dotted"
+                  >
+                    Terms of Service
+                  </a>
+                  and its
+                  <a
+                    href="#"
+                    className="border-b border-gray-500 border-dotted"
+                  >
+                    Privacy Policy
+                  </a>
                 </p>
               </div>
             </div>
           </div>
-
-          {/* Elemen tambahan dengan background putih */}
-          <div className="md:w-1/2 w-full h-1/2 md:h-full flex justify-center items-center rounded-b-lg md:rounded-r-lg md:rounded-bl-none">
-   
+        </div>
+        <div className="hidden lg:flex flex-1 h-[50rem] w-full bg-black rounded-lg bg-grid-white/[0.2] relative items-center justify-center">
+          {/* New div for background effect */}
+          <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black rounded-lg [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] z-10"></div>
+          {/* Image div positioned on top */}
+          <div className="absolute inset-0 flex items-center justify-center z-20">
+            <div className="bg-[url('/Navbar/Logo.png')] w-full h-full bg-contain bg-center bg-no-repeat"></div>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+const BottomGradient = () => {
+  return (
+    <>
+      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+    </>
+  );
+};
+
+const LabelInputContainer = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <div className={cn("flex flex-col space-y-2 w-full", className)}>
+      {children}
+    </div>
+  );
+};
