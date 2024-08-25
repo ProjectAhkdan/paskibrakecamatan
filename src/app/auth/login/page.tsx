@@ -88,7 +88,7 @@ export default function LoginSignUpSlider() {
                     className="relative mt-4 block w-full h-10 bg-gradient-to-br from-black to-neutral-600 text-white rounded-md font-medium shadow-md transition-shadow duration-300 ease-in-out hover:shadow-lg"
                     type="submit"
                   >
-                    Sign up <span>&rarr;</span>
+                    Sign up <span>-></span>
                     <BottomGradient />
                   </button>
                 </form>
