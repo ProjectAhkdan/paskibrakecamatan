@@ -34,7 +34,7 @@ export default function LoginSignUpSlider() {
   };
 
   return (
-    <div className="min-h-screen font-Montserrrat text-gray-900 flex justify-center">
+    <div className="min-h-screen font-Montserrrat bg-white text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow-white shadow-lg sm:rounded-lg flex justify-center flex-1">
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
           <div className="mt-12 flex flex-col items-center">
@@ -94,7 +94,7 @@ export default function LoginSignUpSlider() {
                 </form>
 
                 <p className="mt-6 text-xs text-gray-600 text-center">
-                  I agree to abide by templatana's
+                  I agree to abide by templatana&apos;s
                   <a
                     href="#"
                     className="border-b border-gray-500 border-dotted"
@@ -111,14 +111,6 @@ export default function LoginSignUpSlider() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="hidden lg:flex flex-1 h-[50rem] w-full bg-black rounded-lg bg-grid-white/[0.2] relative items-center justify-center">
-          {/* New div for background effect */}
-          <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-black rounded-lg [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] z-10"></div>
-          {/* Image div positioned on top */}
-          <div className="absolute inset-0 flex items-center justify-center z-20">
-            <div className="bg-[url('/Navbar/Logo.png')] w-full h-full bg-contain bg-center bg-no-repeat"></div>
           </div>
         </div>
       </div>
